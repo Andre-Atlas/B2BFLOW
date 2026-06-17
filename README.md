@@ -16,6 +16,25 @@ Um bot automatizado em Python que busca contatos armazenados em um banco de dado
 - Conta e projeto configurados no Supabase (com uma tabela chamada `contatos` que tenha pelo menos as colunas `id`, `nome`, e `telefone`).
 - Instância ativa na Z-API.
 
+
+### 🛠️ Pré-requisitos (2): Estrutura do Banco (Supabase)
+Antes de ir para o código, no editor SQL do seu projeto no Supabase, crie uma tabela de contatos.
+
+```sql
+CREATE TABLE contatos (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    telefone VARCHAR(20) NOT NULL, -- formato ex: 5511999999999
+    processado BOOLEAN DEFAULT FALSE -- para controle futuro de quem já recebeu
+);
+
+-- Insira dados de teste
+INSERT INTO contatos (nome, telefone) VALUES 
+('João', '5511911111111'),
+('Maria', '5511922222222'),
+('Pedro', '5511933333333');
+```
+
 ### 2. Instalação
 Clone o repositório e instale as dependências:
 ```bash
