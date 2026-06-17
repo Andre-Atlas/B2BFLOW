@@ -13,6 +13,7 @@ class Config:
 
     ZAPI_INSTANCE_ID = os.getenv("ZAPI_INSTANCE_ID")
     ZAPI_INSTANCE_TOKEN = os.getenv("ZAPI_INSTANCE_TOKEN")
+    ZAPI_CLIENT_TOKEN = os.getenv("ZAPI_CLIENT_TOKEN")
 
     MENSAGEM_TEMPLATE = os.getenv("MENSAGEM_TEMPLATE", "Olá <nome_contato>, teste!")
 
@@ -23,6 +24,7 @@ class Config:
         if not cls.SUPABASE_KEY: missing.append("SUPABASE_KEY")
         if not cls.ZAPI_INSTANCE_ID: missing.append("ZAPI_INSTANCE_ID")
         if not cls.ZAPI_INSTANCE_TOKEN: missing.append("ZAPI_INSTANCE_TOKEN")
+        if not cls.ZAPI_CLIENT_TOKEN: missing.append("ZAPI_CLIENT_TOKEN")
 
         if missing:
             logger.error(f"Faltam as seguintes variáveis no .env: {', '.join(missing)}")

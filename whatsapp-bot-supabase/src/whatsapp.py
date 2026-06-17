@@ -19,9 +19,11 @@ class WhatsAppClient:
 
         headers = {
             "Accept": "application/json",
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Client-Token": Config.ZAPI_CLIENT_TOKEN
         }
 
+        response = None
         try:
             response = requests.post(self.url, json=payload, headers=headers)
             response.raise_for_status()  # Lança erro se status >= 400
